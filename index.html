@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verificare bilet</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+  }
+  .valid { background-color: #00c853; color: white; }
+  .invalid { background-color: #b00020; color: white; }
+  .card {
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  }
+</style>
+</head>
+<body>
+<div id="card" class="card">
+  <h1 id="message">Verificare bilet...</h1>
+  <p id="name"></p>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const name = params.get("name");
+const validNames = [
+"Istrate Daria Stefania",
+"Popescu Alina Elena",
+"Abaza Beatrice",
+"Vlad Ana-Maria",
+"Dinescu Iustin-Andrei",
+"Zamfir Rares Marian",
+"Enache Adiana Cătălina Gabriela"];
+
+document.getElementById("name").innerText = name ? name : "Fără nume în link";
+ 
+if (name && validNames.includes(name)) {
+  document.body.classList.add("valid");
+  document.getElementById("message").innerText = "VALID ✅";
+} else {
+  document.body.classList.add("invalid");
+  document.getElementById("message").innerText = "INVALID ❌";
+}
+</script>
+</body>
+</html>

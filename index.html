@@ -30,6 +30,7 @@
 </div>
 
 <script>
+console.log("🔧 Test JS activat")
 const params = new URLSearchParams(window.location.search);
 const name = params.get("name");
 const validNames = [
@@ -60,10 +61,10 @@ if (name && validNames.includes(name)) {
   document.body.classList.add("invalid");
   document.getElementById("message").innerText = "INVALID ❌";
 } 
-console.log("✅ Scriptul funcționează!");
 </script>
 </body>
 
 </html>
+
 
 
